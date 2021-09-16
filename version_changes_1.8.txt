@@ -1,0 +1,39 @@
+version 1.8 -- 2021/09/16
+	MaterialExamined
+	* added columns for host and literal label
+	* fixed small bugs that prevented correct printing of the material list when consecutive rows had the same information in some cells (e.g. Argentina, Córdoba and Spain, Córdoba)
+	(this was not added to the EJT version... beware!)
+
+version 1.7 -- 2021/04/28
+	MaterialExamined + Descriptions:
+	* replaced ISBLANK() by COUNTBLANK()=1; COUNTBLANK counts both truly empty cells, as well as cells filled with formulas returning ""; thus now the spreadsheets work better if your original data was generated using formmulas.
+	
+	MaterialExamined:
+	*added a custom sheet that generates lists in the format for the European Journal of Taxonomy
+
+version 1.6 -- 2020/05/11
+
+	MaterialExamined:
+	* Made pooling more efficient by removing lastpool and reworking the formula in matex to no longer require INDEX(MATCH)
+	
+version 1.5 -- 2020/05/06
+thanks to Abel Bustamante, Priscila Hanisch, Willians Porto, Alexander Orfinger and Shlomo Cain for feedback and suggestions
+
+	General fixes
+	* MaterialExamined and Description now trim and fix small formatting issues in the list/final description (double spaces, double commas, etc.)
+	* Added full citation to ReadMe
+	* Changed all VLOOKUP to INDEX(MATCH) for improved precision
+
+	MaterialExamined:
+	* Fixed the B5–B7 formulas in MaterialExamined data sheet, which were lacking and could cause errors in printing records of these rows
+	* Added sheet "type-categories" to MaterialExamined; users can now add new type categories manually
+	* Added "Allotype" to list of type categories
+	* Reworked helper columns, removed checkup and checkdown, added composedloc, composedrecord, etc
+	* Users can now define the separator following countries (default .) and 1st level administrative units (default :)
+	* Fixed the matex formula, which in some instances failed to print method/habitat/date/collector when it was the same in consecutive in the same rows, even if it was from different collecting events
+	* Improved some formatting issues (now it puts the comma in admin2 outside the tags; uses comma instead of semicolon for consecutive localities in same admin2)
+	* Now has a "verbose" option for printing "same collector", "same date" and "same collector and date" so these instances can be differentiated from absences of data
+	* Now has a pool option that allows summing of individuals of the same locality for a more condensed list format
+
+	Variation:
+	* Fixed missing formulas in Variation data sheet interval E23:G26
